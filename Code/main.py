@@ -1,9 +1,6 @@
 import secrets
 import os
-import numpy as np
 from Code.CTCMI import CT_IMI_CMMI, EEA
-from Code.FitGaussian import Fit_Curve_Gaussian
-from Code.VerifyGaussian import Verify_Gaussian
 
 COVER_COPY_OUTPUT = True
 
@@ -12,7 +9,7 @@ output_path = os.path.join(cwd, '..', 'Output')
 copy_output_path = os.path.join(cwd, '..', 'Copy_Output')
 output_path_boundary = os.path.join(output_path, 'stored_boundary_n.txt')
 
-N = int(10e2)
+N = int(10e7)
 
 P_192 = 2 ** 192 - 2 ** 64 - 1
 P_224 = 2 ** 224 - 2 ** 96 + 1
