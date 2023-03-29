@@ -30,7 +30,7 @@ def Fit_Curve_Gaussian(data_x, data_y, init_vector=None):
     return parameter
 
 
-P_name = ['192', '224', '256', '384', '521', '1279', '2281']
+P_name = ['192', '224', '256', '384', '521', '1279', '2203']
 
 if __name__ == "__main__":
     cwd = os.getcwd()

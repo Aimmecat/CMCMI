@@ -68,32 +68,32 @@ def CT_IMI_CMMI(a: int, p: int, N, INPUT_MODE="INTEGER"):
             else:
                 a, p, u, v = p, half_a, (v - u) << 1, u  # a < p < 3/2a
 
-        # if not (a == 0 and p == 1):
-        #     cnt = cnt + 1
+        if not (a == 0 and p == 1):
+            cnt = cnt + 1
 
-        # if MODE == "DEBUG":
-        #     iteration_value = [a, p, u, v]
-        #     tag = ['a', 'p', 'u', 'v']
-        #     store_target = [iteration_a_list, iteration_p_list, iteration_u_list, iteration_v_list]
-        #     for idx, value in enumerate(iteration_value):
-        #         hex_value = hex(value).replace('0x', '').upper()             # if you require signed u, v
-        #         # hex_value = hex(value & r_mask).replace('0x', '').upper()  # if you require unsigned u, v
-        #         store_target[idx].append(hex_value)
-        #         print(tag[idx], ':', hex_value, "\t", 'bit length:', value.bit_length())
-        #     print('---------------------------------', cnt, 'round', '-------------------------------------')
-        #
-        #     print("Iteration Finished, the value of v is", hex(v).replace('0x', '').upper())
+        if MODE == "DEBUG":
+            iteration_value = [a, p, u, v]
+            tag = ['a', 'p', 'u', 'v']
+            store_target = [iteration_a_list, iteration_p_list, iteration_u_list, iteration_v_list]
+            for idx, value in enumerate(iteration_value):
+                hex_value = hex(value).replace('0x', '').upper()             # if you require signed u, v
+                # hex_value = hex(value & r_mask).replace('0x', '').upper()  # if you require unsigned u, v
+                store_target[idx].append(hex_value)
+                print(tag[idx], ':', hex_value, "\t", 'bit length:', value.bit_length())
+            print('---------------------------------', cnt, 'round', '-------------------------------------')
+
+            print("Iteration Finished, the value of v is", hex(v).replace('0x', '').upper())
 
     """
         the following is simple method to remove 2^n, to promise get the final result
     """
 
-    # if INPUT_MODE == "INTEGER":
-    #     for _ in range(N):
-    #         if v & 1:
-    #             v = (v + init_p) >> 1
-    #         else:
-    #             v = v >> 1
+    if INPUT_MODE == "INTEGER":
+        for _ in range(N):
+            if v & 1:
+                v = (v + init_p) >> 1
+            else:
+                v = v >> 1
 
     return v % init_p, cnt
 
@@ -110,7 +110,7 @@ if __name__ == "__main__":
         print("Check the value of MODE!")
 
     # calculate
-    calculate_result = CT_IMI_CMMI(a, p, P_256_N)
+    calculate_result = CT_IMI_CMMI(a, p, P_256_N)[0]
     verify_result = EEA(a, p)
 
     print("Starting Check...")

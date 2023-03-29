@@ -12,7 +12,7 @@ test_alg = ['CT_IMI', 'BEEA', 'HBEEA', 'Stein', 'P_Stein', 'MI']
 color = ['green', '#FF6347', '#FF69B4', '#B8860B', '#A0522D', '#1E90FF']
 alg_list = [CT_IMI_CMMI, Test_BEEA, Test_HBEEA, Test_Stein, Test_P_stein, Test_MI]
 
-N = int(10e1)
+N = int(10e3)
 scaled = 10e5 / N
 
 P_192 = 2 ** 192 - 2 ** 64 - 1

@@ -7,7 +7,7 @@ cwd = os.getcwd()
 output_path = os.path.join(cwd, '..', 'Output', 'Latency')
 output_path2 = os.path.join(cwd, '..', 'Output', 'Constant')
 
-P_name = ['192', '224', '256', '384', '521', '1279', '2281']
+P_name = ['192', '224', '256', '384', '521', '1279', '2203']
 
 Hz = 3e9
 
